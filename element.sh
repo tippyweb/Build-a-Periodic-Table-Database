@@ -1,6 +1,6 @@
 #! /bin/bash
 #############################################################################
-# Periodic Table Database - 2024-09-29
+# Periodic Table Database - 2024-09-29 - Submitted on 2024-09-29
 #############################################################################
 
 PSQL="psql --username=freecodecamp --dbname=periodic_table -t --no-align -c"
