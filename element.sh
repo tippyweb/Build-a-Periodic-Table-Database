@@ -1,4 +1,8 @@
 #! /bin/bash
+#############################################################################
+# Periodic Table Database - 2024-09-29
+#############################################################################
+
 PSQL="psql --username=freecodecamp --dbname=periodic_table -t --no-align -c"
 
 MAIN() {
@@ -6,7 +10,7 @@ MAIN() {
 # trim the element dataq
   TRIMMED_ARG=$(echo $1 | sed -E 's/^ *| *$//g')
 
-# element is an atomic number
+# user input is an atomic number
   if [[ $TRIMMED_ARG =~ ^[0-9][0-9]?$ ]]
   then
     ELEMENT_NAME=$($PSQL "SELECT name FROM elements WHERE atomic_number=$TRIMMED_ARG;")
@@ -26,7 +30,7 @@ MAIN() {
 
     fi
 
-# element is an element symbol
+# user input is an element symbol
   elif [[ $TRIMMED_ARG =~ ^[A-Z][a-z]?$ ]]
   then
     ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$TRIMMED_ARG';")
@@ -46,7 +50,7 @@ MAIN() {
 
     fi
 
-# element is an element name
+# user input is an element name
   elif [[ $TRIMMED_ARG =~ ^[A-Z][a-z]+$ ]]
   then
     ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE name='$TRIMMED_ARG';")
@@ -87,6 +91,7 @@ DISPLAY_DATA() {
 
 ERROR() {
   echo -e "\nI could not find that element in the database.\n"
+
 }
 
 # initial message to the user
