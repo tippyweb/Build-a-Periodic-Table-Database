@@ -84,20 +84,20 @@ DISPLAY_DATA() {
 
   echo "$ELEMENT_DATA" | while read TYPE_ID ATOMIC_NUMBER SYMBOL NAME ATOMIC_MASS MELTING_POINT BOILING_POINT TYPE
   do
-    echo -e "\nThe element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius.\n"
+    echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
   done
 
 }
 
 ERROR() {
-  echo -e "\nI could not find that element in the database.\n"
+  echo "I could not find that element in the database."
 
 }
 
 # initial message to the user
 if [[ -z $1 ]]
 then
-  echo -e "\nPlease provide an element as an argument.\n"
+  echo "Please provide an element as an argument."
 
 # user enters element info
 else
